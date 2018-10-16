@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import ProductsList from '../components/ProductsList'
 
 class AllProducts extends Component {
   render() {
     return(
-      <h1>This is the Part that will show the products</h1>
+      <div>
+        <h1>This is the Part that will show the products</h1>
+        <ProductsList/>
+      </div>
     )
   }
 }

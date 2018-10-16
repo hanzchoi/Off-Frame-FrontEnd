@@ -11,6 +11,7 @@ class App extends Component {
 
         <Switch>
           <Route path='/' exact component={HomeContainer}/>
+
           {//<Route component={}/> this is the default when there are no pages found
           //<Route path='/product/:id'/>
           }
@@ -22,7 +23,7 @@ class App extends Component {
 }
 export default App;
 // the home is the default
-
+//<Route path='/products' render={this.props.history}
 
 // <header className="App-header">
 //   <img src={logo} className="App-logo" alt="logo" />

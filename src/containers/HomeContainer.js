@@ -26,9 +26,29 @@ class HomeContainer extends Component {
      return(
       <div>
         <h1>Home Container</h1>
-        <NavHeader />
-        <CurrentFeature />
-        <AllProducts />
+
+        <Segment basic>
+          <Grid verticalAlign='middle'>
+            <Grid.Row >
+              <Grid.Column width={16}>
+                <NavHeader />
+              </Grid.Column>
+            </Grid.Row >
+
+            <Grid.Row >
+              <Grid.Column width={16}>
+                <CurrentFeature />
+              </Grid.Column>
+            </Grid.Row >
+
+            <Grid.Row >
+              <Grid.Column width={16}>
+                <AllProducts />
+              </Grid.Column>
+            </Grid.Row >
+
+          </Grid>
+        </Segment>
       </div>
 
      )
