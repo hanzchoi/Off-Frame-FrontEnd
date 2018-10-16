@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
 
+import NavHeader from './NavHeader';
+import CurrentFeature from './CurrentFeature';
+import AllProducts from './AllProducts';
+
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Menu,
+  Responsive,
+  Segment,
+  Sidebar,
+  Visibility,
+} from 'semantic-ui-react'
+
 
 class HomeContainer extends Component {
   render() {
      return(
-       <div>
-       <div> Home Container</div>
-       <p>What to do here?</p>
-       </div>
+      <div>
+        <h1>Home Container</h1>
+        <NavHeader />
+        <CurrentFeature />
+        <AllProducts />
+      </div>
+
      )
   }
 }
