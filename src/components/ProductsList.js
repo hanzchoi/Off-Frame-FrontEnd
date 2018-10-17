@@ -1,26 +1,28 @@
 import React, { Component } from 'react';
 import Product from './Product';
+import { connect } from 'react-redux';
+
 
 class ProductsList extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      products:
-      [
-        {name: 'Wide Leg Cropped Trouser v1',
-          image: 'http://res.cloudinary.com/dbgp0ijfb/image/upload/v1539268407/off-frame-studio/P-001B-1.jpg',
-          price: 99.99
-        },
-        {name: 'Wide Leg Cropped Trouser v2',
-          image: 'http://res.cloudinary.com/dbgp0ijfb/image/upload/v1539268407/off-frame-studio/P-001A-1.jpg',
-          price: 89.99
-        }
-      ]
-    }
-  }
+  // constructor(props){
+  //   super(props)
+  //   this.state = {
+  //     products:
+  //     [
+  //       {name: 'Wide Leg Cropped Trouser v1',
+  //         image: 'http://res.cloudinary.com/dbgp0ijfb/image/upload/v1539268407/off-frame-studio/P-001B-1.jpg',
+  //         price: 99.99
+  //       },
+  //       {name: 'Wide Leg Cropped Trouser v2',
+  //         image: 'http://res.cloudinary.com/dbgp0ijfb/image/upload/v1539268407/off-frame-studio/P-001A-1.jpg',
+  //         price: 89.99
+  //       }
+  //     ]
+  //   }
+  // }
 
   renderProducts = () => {
-    return this.state.products.map((product, i) => <Product key={i} product={product}/>)
+    return this.props.products.map((product, i) => <Product key={i} product={product}/>)
   }
 
   render() {
@@ -32,4 +34,13 @@ class ProductsList extends Component {
   }
 }
 
-export default ProductsList;
+const mapStateToProps = (state) => {
+  return {
+    products: state.products
+  }
+}
+
+export default connect(mapStateToProps)(ProductsList);
+
+
+  //{this.renderProducts()}

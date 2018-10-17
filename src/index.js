@@ -11,6 +11,7 @@ import './index.css';
 //import * as serviceWorker from './serviceWorker';
 
 const store = createStore(reducer)
+//console.log(store.getState());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import HomeContainer from './containers/HomeContainer'
+import AllProducts from './containers/AllProducts'
 //import logo from './logo.svg';
 //import './App.css';
 import { Route, NavLink, Switch, Redirect} from 'react-router-dom'
 
 class App extends Component {
+
+  //
   render() {
     return (
       <div className="App">
 
         <Switch>
-          <Route path='/' exact component={HomeContainer}/>
-
+          <Route path='/' exact render={(props) => <HomeContainer {...props}/>}/>
+          <Route path='/products' exact render={(props) => <AllProducts/>}/>
           {//<Route component={}/> this is the default when there are no pages found
           //<Route path='/product/:id'/>
           }
