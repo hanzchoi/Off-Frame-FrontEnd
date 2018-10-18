@@ -1,50 +1,64 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react';
-import {Link} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 class NavHeader extends Component {
   state = { activeItem: 'home'}
-
+  //this.props.history.push(`/${name}`)
   handleItemClick = (event, { name }) => {
-    this.props.history.push(`/${name}`)
-    this.setState({activeItem: name})}
+    this.setState({activeItem: name})
+  }
+
+  // TODO: The a tag is causing an error
+
 
   render() {
     const { activeItem } = this.state
     // <Link to="/item">Item</Link>
     // </Menu.Item>
-    console.log(this.props);
+    //console.log(this.props);
     return(
       <div>
-      <Menu secondary>
+        <Menu secondary>
+          <NavLink to="/">
+             <Menu.Item
+                name='home'
+                active={activeItem === 'home'}
 
-       <Menu.Item
-          name='home'
-          active={activeItem === 'home'}
-          onClick={this.handleItemClick}
-       />
-       <Menu.Item
-          name='about'
-          active={activeItem === 'about'}
-          onClick={this.handleItemClick}
-       />
-       <Menu.Item
-          name='products'
-          active={activeItem === 'products'}
-          onClick={this.handleItemClick}
-       />
-       
-       <Menu.Menu position='right'>
-         <Menu.Item>
-           <Input icon='search' placeholder='Search...' />
-         </Menu.Item>
-         <Menu.Item
-           name='cart'
-           icon='shopping cart'
-           active={activeItem === 'cart'}
-           onClick={this.handleItemClick}
-         />
-       </Menu.Menu>
-     </Menu>
+                onClick={this.handleItemClick}
+             />
+           </NavLink>
+
+           <NavLink to="/about">
+             <Menu.Item
+                name='about'
+                active={activeItem === 'about'}
+                onClick={this.handleItemClick}
+             />
+           </NavLink>
+
+           <NavLink to="/products">
+             <Menu.Item
+                name='products'
+                active={activeItem === 'products'}
+                onClick={this.handleItemClick}
+             />
+           </NavLink>
+
+          <Menu.Menu position='right'>
+             <Menu.Item>
+               <Input icon='search' placeholder='Search...' />
+             </Menu.Item>
+
+           <NavLink to="/cart">
+             <Menu.Item
+               name='cart'
+               icon='shopping cart'
+               active={activeItem === 'cart'}
+               onClick={this.handleItemClick}
+             />
+           </NavLink>
+         </Menu.Menu>
+       </Menu>
      </div>
     )
   }

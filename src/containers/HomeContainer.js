@@ -19,11 +19,6 @@ class HomeContainer extends Component {
 
         <Segment basic>
           <Grid verticalAlign='middle'>
-            <Grid.Row >
-              <Grid.Column width={16}>
-                <NavHeader {...this.props} />
-              </Grid.Column>
-            </Grid.Row>
 
             <Grid.Row >
               <Grid.Column width={16}>
