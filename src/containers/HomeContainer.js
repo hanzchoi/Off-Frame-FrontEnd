@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NavHeader from './NavHeader';
+//import NavHeader from './NavHeader';
 import CurrentFeature from './CurrentFeature';
 import AllProducts from './AllProducts';
 //Button,Container,Divider,Visibility,Sidebar,Header,Icon,Image,List,Menu,Responsive,
@@ -12,7 +12,7 @@ import {
 
 class HomeContainer extends Component {
   render() {
-    console.log(this.props);
+    //console.log(this.props);
      return(
       <div>
         <h1>Home Container</h1>

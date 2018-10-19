@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
+
 class NavHeader extends Component {
   state = { activeItem: 'home'}
   //this.props.history.push(`/${name}`)
@@ -9,7 +10,6 @@ class NavHeader extends Component {
   }
 
   // TODO: The a tag is causing an error
-
 
   render() {
     const { activeItem } = this.state

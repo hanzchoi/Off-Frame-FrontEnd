@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import HomeContainer from './containers/HomeContainer'
 import AllProducts from './containers/AllProducts'
 import NavHeader from './containers/NavHeader'
+import ProductDetails from './components/ProductDetails'
+import ShoppingCart from './containers/ShoppingCart'
+
 //import logo from './logo.svg';
 //import './App.css';
-import { Route, NavLink, Switch, Redirect} from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 import {Grid,Segment} from 'semantic-ui-react'
 
 //<Route path='/' exact render={(props) => <HomeContainer {...props}/>}/>
@@ -27,8 +30,9 @@ class App extends Component {
         <Switch>
           <Route path='/' exact render={(props) => <HomeContainer/>}/>
           <Route path='/products' exact render={(props) => <AllProducts/>}/>
+          <Route path='/products/:id' exact render={(props) => <ProductDetails {...props}/>}/>
           <Route path='/about' exact render={() => <h1>This is about</h1>}/>
-          <Route path='/cart' exact render={() => <h1>This is a cart </h1>}/>
+          <Route path='/cart' exact render={() => <ShoppingCart />}/>
           <Route path='/login' exact render={() => <h1>This is a log in</h1>}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>
 
@@ -41,7 +45,6 @@ class App extends Component {
   }
 }
 export default App;
-// the home is the default
 //<Route path='/products' render={this.props.history}
 
 // <header className="App-header">

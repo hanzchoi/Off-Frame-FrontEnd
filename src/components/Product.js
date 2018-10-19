@@ -1,37 +1,32 @@
 import React, { Component } from 'react';
 import { Image } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { selectProduct } from '../actions/index.js';
-
+//import { connect } from 'react-redux';
+//import { selectProduct } from '../actions/index.js';
+//import { Route } from 'react-router';
+import {NavLink} from 'react-router-dom';
 
 
 class Product extends Component {
 
-  selectProduct = () => {
-
+  productImage = (image) => {
+    return <Image src={image} size='small' centered/>
   }
 
-  productImage = (image) => {
-    return <Image src={image}
-              onClick={() => this.props.selectProduct(this.props.product)}
-              size='small'
-              centered/>
-            }
-
   render() {
-    //console.log(this.props);
-    const {name, image, price } = this.props.product
-    //console.log(this.props.product);
+    const {name, image, price, id } = this.props.product
     return(
       <div>
+        <NavLink to={`/products/${id}`}>
         {this.productImage(image)}
         <p>{name}</p>
         <p>{price}</p>
+        </NavLink>
+
       </div>
     )
   }
 }
-
-export default connect(null, {selectProduct})(Product)
+//connect(null, {selectProduct})(
+export default Product
 // first is to get the state , second setter
 // the second is where the store to component
