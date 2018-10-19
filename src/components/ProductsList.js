@@ -26,4 +26,4 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(ProductsList);
 
 
-  //{this.renderProducts()}
+//{this.renderProducts()}

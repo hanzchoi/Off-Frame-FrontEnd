@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import ShoppingCartList from '../components/ShoppingCartList';
+import CheckOutBox from '../components/CheckOutBox';
 
 class ShoppingCart extends Component{
+
+  // This will show you the total of the total price
+  currentCartTotal = () => {
+
+  }
+
   render() {
+    //console.log(this.props.currentCart);
     return(
       <div>
-        <h1>This is the shopping cart 999page</h1>
+        <ShoppingCartList cartItems={this.props.currentCart}/>
+        <CheckOutBox/>
       </div>
     )
   }
@@ -14,7 +23,7 @@ class ShoppingCart extends Component{
 
 const mapStateToProps = (state) => {
   return {
-
+    currentCart: state.currentCart
   }
 }
 
