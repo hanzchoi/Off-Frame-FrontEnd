@@ -5,6 +5,7 @@ import NavHeader from './containers/NavHeader'
 import ProductDetails from './components/ProductDetails'
 import ShoppingCart from './containers/ShoppingCart'
 import CheckOutReview from './components/CheckOutReview'
+import ThankYouOrderPage from './components/ThankYouOrderPage';
 
 //import './App.css';
 import { Route, Switch} from 'react-router-dom'
@@ -36,7 +37,7 @@ class App extends Component {
           <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
           <Route path='/login' exact render={() => <h1>This is a log in</h1>}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>
-
+          <Route path='/thank-you-order' exact render={() => <ThankYouOrderPage />}/>
           {//<Route component={}/> this is the default when there are no pages found
           //<Route path='/product/:id'/>
           }

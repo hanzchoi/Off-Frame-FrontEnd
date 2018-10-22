@@ -22,6 +22,7 @@ const products = [
 const initState = {
   products: products,
   currentCart: [],
+  currentCartPrice: 0,
   selectedProduct: {}
 }
 
@@ -32,6 +33,9 @@ export const reducer = (state = initState, action) => {
       return { ...state, selectedProduct: action.payload }
     case 'ADD_PRODUCT':
      return { ...state, currentCart: [...state.currentCart, action.payload] }
+    case 'SET_CURRENT_PRICE':
+      return { ...state, currentCartPrice: action.payload }
+
     default:
       return state;
   }
