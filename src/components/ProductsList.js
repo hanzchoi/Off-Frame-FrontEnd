@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 class ProductsList extends Component {
 
   renderProducts = () => {
-    return this.props.products.map((product, i) => <Product key={i} product={product}/>)
+    return this.props.products.map((product) => <Product key={product.id} product={product}/>)
   }
 
   render() {

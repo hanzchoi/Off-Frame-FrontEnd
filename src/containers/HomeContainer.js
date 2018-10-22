@@ -10,9 +10,10 @@ import {
 } from 'semantic-ui-react'
 
 
+
 class HomeContainer extends Component {
+
   render() {
-    //console.log(this.props);
      return(
       <div>
         <h1>Home Container</h1>

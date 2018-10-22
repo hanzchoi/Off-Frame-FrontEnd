@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { addProduct } from '../actions/index.js';
 import { Image } from 'semantic-ui-react';
@@ -6,31 +6,38 @@ import { NavLink } from 'react-router-dom';
 
 class ProductDetails extends Component {
 
-  currentProduct = () => {
-    let id = parseInt(this.props.match.params.id, 10);
-    let cProduct = this.props.products.find((product) => product.id === id)
-    return cProduct;
-  }
-
   productImage = (image) => {
     return <Image src={image} size='medium'/>
   }
 
+  renderOutProductDetail = (product) => {
+    if(product){
+      const {name, images, price, color, size, description} = product
+      console.log(product);
+
+      return (
+        <Fragment>
+          <h1>{name}</h1>
+            {this.productImage(images[0].url)}
+            <h1>Price: {price}</h1>
+            <h1>Color: {color}</h1>
+            <h1>Size: {size}</h1>
+            <h1>Description: {description}</h1>
+            <NavLink to={'/cart'}>
+              <button onClick={() => {
+                return this.props.addProduct(this.props.product)}
+              }>Add to Cart</button>
+            </NavLink>
+        </Fragment>
+      )
+    }
+  }
+
   render(){
-    const {name, image, price, color, size, description} = this.props.product
+    //console.log(this.props.product);
     return (
       <div>
-        <h1>{name}</h1>
-        {this.productImage(image)}
-        <h1>Price: {price}</h1>
-        <h1>Color: {color}</h1>
-        <h1>Size: {size}</h1>
-        <h1>Description: {description}</h1>
-        <NavLink to={'/cart'}>
-          <button onClick={() => {
-            return this.props.addProduct(this.props.product)}
-          }>Add to Cart</button>
-        </NavLink>
+        {this.renderOutProductDetail(this.props.product)}
       </div>
     )
   }
