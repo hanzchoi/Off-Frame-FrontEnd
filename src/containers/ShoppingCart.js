@@ -16,11 +16,11 @@ class ShoppingCart extends Component{
   }
 
   render() {
-    console.log(this.currentCartTotal());
+    //console.log(this.currentCartTotal());
     return(
       <div>
         <ShoppingCartList cartItems={this.props.currentCart}/>
-        <CheckOutBox/>
+        <CheckOutBox totalPrice={this.currentCartTotal()}/>
       </div>
     )
   }

@@ -4,8 +4,8 @@ import AllProducts from './containers/AllProducts'
 import NavHeader from './containers/NavHeader'
 import ProductDetails from './components/ProductDetails'
 import ShoppingCart from './containers/ShoppingCart'
+import CheckOutReview from './components/CheckOutReview'
 
-//import logo from './logo.svg';
 //import './App.css';
 import { Route, Switch} from 'react-router-dom'
 import {Grid,Segment} from 'semantic-ui-react'
@@ -33,6 +33,7 @@ class App extends Component {
           <Route path='/products/:id' exact render={(props) => <ProductDetails {...props}/>}/>
           <Route path='/about' exact render={() => <h1>This is about</h1>}/>
           <Route path='/cart' exact render={() => <ShoppingCart />}/>
+          <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
           <Route path='/login' exact render={() => <h1>This is a log in</h1>}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>
 
