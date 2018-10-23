@@ -12,6 +12,7 @@ import ShoppingCart from './containers/ShoppingCart';
 import CheckOutReview from './components/CheckOutReview';
 import ThankYouOrderPage from './components/ThankYouOrderPage';
 import ProductDetails from './components/ProductDetails';
+import LoginForm from './components/LoginForm';
 
 class App extends Component {
   constructor(props){
@@ -70,7 +71,7 @@ class App extends Component {
           <Route path='/about' exact render={() => <h1>This is about</h1>}/>
           <Route path='/cart' exact render={() => <ShoppingCart />}/>
           <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
-          <Route path='/login' exact render={() => <h1>This is a log in</h1>}/>
+          <Route path='/login' exact render={() => <LoginForm />}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>
           <Route path='/thank-you-order' exact render={() => <ThankYouOrderPage />}/>
         </Switch>

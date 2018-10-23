@@ -1,81 +1,78 @@
-import React, { Component } from 'react';
-import { Input, Menu } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import React, { Component } from "react";
+import { Input, Menu } from "semantic-ui-react";
+import { NavLink } from "react-router-dom";
 
 class NavHeader extends Component {
-  state = { activeItem: 'home'}
-  handleItemClick = (event, { name }) => {
-    this.setState({activeItem: name})
-  }
+  state = { activeItem: "" };
 
-  // TODO: The a tag is causing an error
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state
-    // <Link to="/item">Item</Link>
-    // </Menu.Item>
-    return(
+    const { activeItem } = this.state;
+    return (
       <div>
         <Menu secondary>
-          <NavLink to="/">
-             <Menu.Item
-                name='home'
-                active={activeItem === 'home'}
+          <Menu.Item
+            as={NavLink}
+            to="/"
+            name="home"
+            active={activeItem === "home"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={NavLink}
+            to="/about"
+            name="about"
+            active={activeItem === "about"}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            as={NavLink}
+            to="/products"
+            name="products"
+            active={activeItem === "products"}
+            onClick={this.handleItemClick}
+          />
 
-                onClick={this.handleItemClick}
-             />
-           </NavLink>
+          <Menu.Menu position="right">
+            <Menu.Item>
+              <Input icon="search" placeholder="Search..." />
+            </Menu.Item>
 
-           <NavLink to="/about">
-             <Menu.Item
-                name='about'
-                active={activeItem === 'about'}
-                onClick={this.handleItemClick}
-             />
-           </NavLink>
+            <Menu.Item
+              as={NavLink}
+              to="/signup"
+              name="Sign Up"
+              active={activeItem === "Sign Up"}
+              onClick={this.handleItemClick}
+            />
 
-           <NavLink to="/products">
-             <Menu.Item
-                name='products'
-                active={activeItem === 'products'}
-                onClick={this.handleItemClick}
-             />
-           </NavLink>
+            <Menu.Item
+              as={NavLink}
+              to="/login"
+              name="Login"
+              active={activeItem === "Login"}
+              onClick={this.handleItemClick}
+            />
 
-          <Menu.Menu position='right'>
-             <Menu.Item>
-               <Input icon='search' placeholder='Search...' />
-             </Menu.Item>
-
-             <NavLink to='/signup'>
-               <Menu.Item
-                name='Sign Up'
-                active={activeItem === 'logout'}
-                onClick={this.handleItemClick}
-                />
-             </NavLink>
-
-             <NavLink to='/login'>
-               <Menu.Item
-                name='Login'
-                active={activeItem === 'logout'}
-                onClick={this.handleItemClick}
-                />
-             </NavLink>
-
-             <NavLink to='/cart'>
-               <Menu.Item
-                 name='cart'
-                 icon='shopping cart'
-                 active={activeItem === 'cart'}
-                 onClick={this.handleItemClick}
-               />
-             </NavLink>
-         </Menu.Menu>
-       </Menu>
-     </div>
-    )
+            <Menu.Item
+              as={NavLink}
+              to="/cart"
+              name="cart"
+              icon="shopping cart"
+              active={activeItem === "cart"}
+              onClick={this.handleItemClick}
+            />
+          </Menu.Menu>
+        </Menu>
+      </div>
+    );
   }
 }
 
-export default NavHeader
+export default NavHeader;
+
+//
+
+//
+//
