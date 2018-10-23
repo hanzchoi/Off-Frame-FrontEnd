@@ -16,8 +16,6 @@ class HomeContainer extends Component {
   render() {
      return(
       <div>
-        <h1>Home Container</h1>
-
         <Segment basic>
           <Grid verticalAlign='middle'>
 

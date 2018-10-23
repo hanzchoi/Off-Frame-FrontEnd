@@ -1,38 +1,67 @@
 import React, { Component } from 'react';
-
-import HomeContainer from './containers/HomeContainer';
-import {Grid,Segment} from 'semantic-ui-react';
-
-import AllProducts from './containers/AllProducts'
-import NavHeader from './containers/NavHeader'
-import ShoppingCart from './containers/ShoppingCart'
-import CheckOutReview from './components/CheckOutReview'
-import ThankYouOrderPage from './components/ThankYouOrderPage';
+import {Grid,Segment,Image} from 'semantic-ui-react';
+import './App.css';
 import { loadProducts } from './actions/index';
 import { Route, Switch, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
-import ProductDetails from './components/ProductDetails'
 
-
-//import './App.css';
+import NavHeader from './containers/NavHeader';
+import HomeContainer from './containers/HomeContainer';
+import AllProducts from './containers/AllProducts';
+import ShoppingCart from './containers/ShoppingCart';
+import CheckOutReview from './components/CheckOutReview';
+import ThankYouOrderPage from './components/ThankYouOrderPage';
+import ProductDetails from './components/ProductDetails';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      currentUser: {},
+      currentCart: []
+    }
+  }
+
+  logout = () => {
+    this.setState({
+      currentUser: {},
+      currentCart: []
+    })
+  }
+
+  setUser = (userObj) => {
+    this.setState({
+      currentUser: userObj.user,
+      currentCart: userObj.carts
+    })
+  }
+
+
   componentDidMount() {
     this.props.loadProducts()
   }
 
   render() {
+    //const loggedIn = false
+    const LOGO_URL = "https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701659/off-frame-logo/O.F.S.-LOGO.png"
     return (
       <div className="App">
-      <Segment basic>
-        <Grid verticalAlign='middle'>
-          <Grid.Row >
-            <Grid.Column width={16}>
-              <NavHeader {...this.props} />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+        <Segment basic>
+          <Grid verticalAlign='middle'>
+            <Grid.Row >
+
+              <Grid.Column width={2}>
+                <Image src={LOGO_URL} size='small' verticalAlign='middle' />
+              </Grid.Column>
+
+              <Grid.Column width={14}>
+                <NavHeader />
+              </Grid.Column>
+
+            </Grid.Row>
+
+          </Grid>
+        </Segment>
 
         <Switch>
           <Route path='/' exact render={(props) => <HomeContainer/>}/>
@@ -51,3 +80,12 @@ class App extends Component {
 }
 
 export default withRouter(connect (null, {loadProducts})(App));
+// <Grid.Row >
+//   <Grid.Column width={3}>
+//     <Image src={LOGO_URL} size='tiny' verticalAlign='middle' />
+//   </Grid.Column>
+//
+//   <Grid.Column width={13}>
+//     <LogSignHeader />
+//   </Grid.Column>
+// </Grid.Row>

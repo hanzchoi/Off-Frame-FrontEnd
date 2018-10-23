@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Input, Menu } from 'semantic-ui-react';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class NavHeader extends Component {
   state = { activeItem: 'home'}
-  //this.props.history.push(`/${name}`)
   handleItemClick = (event, { name }) => {
     this.setState({activeItem: name})
   }
@@ -15,7 +14,6 @@ class NavHeader extends Component {
     const { activeItem } = this.state
     // <Link to="/item">Item</Link>
     // </Menu.Item>
-    //console.log(this.props);
     return(
       <div>
         <Menu secondary>
@@ -49,14 +47,30 @@ class NavHeader extends Component {
                <Input icon='search' placeholder='Search...' />
              </Menu.Item>
 
-           <NavLink to="/cart">
-             <Menu.Item
-               name='cart'
-               icon='shopping cart'
-               active={activeItem === 'cart'}
-               onClick={this.handleItemClick}
-             />
-           </NavLink>
+             <NavLink to='/signup'>
+               <Menu.Item
+                name='Sign Up'
+                active={activeItem === 'logout'}
+                onClick={this.handleItemClick}
+                />
+             </NavLink>
+
+             <NavLink to='/login'>
+               <Menu.Item
+                name='Login'
+                active={activeItem === 'logout'}
+                onClick={this.handleItemClick}
+                />
+             </NavLink>
+
+             <NavLink to='/cart'>
+               <Menu.Item
+                 name='cart'
+                 icon='shopping cart'
+                 active={activeItem === 'cart'}
+                 onClick={this.handleItemClick}
+               />
+             </NavLink>
          </Menu.Menu>
        </Menu>
      </div>

@@ -9,6 +9,7 @@ class ProductsList extends Component {
   }
 
   render() {
+    //console.log(this.props.products);
     return(
       <div>
         {this.renderProducts()}
