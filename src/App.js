@@ -33,7 +33,7 @@ class App extends Component {
   setUser = (userObj) => {
     this.setState({
       currentUser: userObj.user,
-      currentCart: userObj.carts
+      currentCart: userObj.shopping_carts
     })
   }
 
@@ -42,9 +42,11 @@ class App extends Component {
     this.props.loadProducts()
   }
 
+  //Lets think about how we can save the loggin state in to redux
   render() {
-    //const loggedIn = false
+    const loggedIn = !!this.state.currentUser.user_id
     const LOGO_URL = "https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701659/off-frame-logo/O.F.S.-LOGO.png"
+    console.log(this.state);
     return (
       <div className="App">
         <Segment basic>
@@ -56,7 +58,7 @@ class App extends Component {
               </Grid.Column>
 
               <Grid.Column width={14}>
-                <NavHeader />
+                <NavHeader loggedIn={loggedIn} logout={this.logout}/>
               </Grid.Column>
 
             </Grid.Row>
@@ -65,13 +67,13 @@ class App extends Component {
         </Segment>
 
         <Switch>
-          <Route path='/' exact render={(props) => <HomeContainer/>}/>
-          <Route path='/products' exact render={(props) => <AllProducts/>}/>
+          <Route path='/' exact render={() => <HomeContainer/>}/>
+          <Route path='/products' exact render={() => <AllProducts/>}/>
           <Route path='/products/:id' exact render={(props) => <ProductDetails {...props}/>}/>
           <Route path='/about' exact render={() => <h1>This is about</h1>}/>
           <Route path='/cart' exact render={() => <ShoppingCart />}/>
           <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
-          <Route path='/login' exact render={() => <LoginForm />}/>
+          <Route path='/login' exact render={(props) => <LoginForm setUser={this.setUser} {...props}/>}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>
           <Route path='/thank-you-order' exact render={() => <ThankYouOrderPage />}/>
         </Switch>
@@ -81,12 +83,4 @@ class App extends Component {
 }
 
 export default withRouter(connect (null, {loadProducts})(App));
-// <Grid.Row >
-//   <Grid.Column width={3}>
-//     <Image src={LOGO_URL} size='tiny' verticalAlign='middle' />
-//   </Grid.Column>
-//
-//   <Grid.Column width={13}>
-//     <LogSignHeader />
-//   </Grid.Column>
-// </Grid.Row>
+//<Route path="/" component={HomeContainer}></Route>

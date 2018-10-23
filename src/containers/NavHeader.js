@@ -5,10 +5,17 @@ import { NavLink } from "react-router-dom";
 class NavHeader extends Component {
   state = { activeItem: "" };
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  handleItemClick = (e, { name }) => {
+    if( name === 'Logout'){
+      //this.setState({ activeItem: name });
+      this.props.logout()
+    }
+    this.setState({ activeItem: name });
+  }
 
   render() {
     const { activeItem } = this.state;
+    //console.log(this.props.loggedIn);
     return (
       <div>
         <Menu secondary>
@@ -46,14 +53,26 @@ class NavHeader extends Component {
               active={activeItem === "Sign Up"}
               onClick={this.handleItemClick}
             />
+            { this.props.loggedIn
+              ?
+              <Menu.Item
+                as={NavLink}
+                to="/"
+                name="Logout"
+                active={activeItem === "Logout"}
+                onClick={
+                  this.handleItemClick}
+              />
+              :
+              <Menu.Item
+                as={NavLink}
+                to="/login"
+                name="Login"
+                active={activeItem === "Login"}
+                onClick={this.handleItemClick}
+              />
+            }
 
-            <Menu.Item
-              as={NavLink}
-              to="/login"
-              name="Login"
-              active={activeItem === "Login"}
-              onClick={this.handleItemClick}
-            />
 
             <Menu.Item
               as={NavLink}

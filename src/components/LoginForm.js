@@ -21,7 +21,10 @@ class LoginForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     UserAdapter.login(this.state)
-    .then(console.log)
+    .then(data => {
+      this.props.setUser(data)
+      this.props.history.push('/cart')
+    })
   }
 
   render() {
