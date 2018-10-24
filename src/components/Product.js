@@ -6,7 +6,7 @@ import './Product.css'
 class Product extends Component {
 
   productImage = (image) => {
-    return <Image src={image} size='small' centered/>
+    return <Image src={image} size='medium' centered/>
   }
 
   render() {
@@ -17,7 +17,6 @@ class Product extends Component {
         <NavLink to={`/products/${id}`}>
           {this.productImage(images[0].url)}
           <p>{name}</p>
-          <p>{price}</p>
         </NavLink>
       </div>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import { connect } from 'react-redux';
+import { Grid, Segment } from 'semantic-ui-react'
 import './ProductsList.css';
 
 class ProductsList extends Component {
@@ -11,9 +12,24 @@ class ProductsList extends Component {
 
   render() {
     return(
-      <div className="product-list">
-        {this.renderProducts()}
-      </div>
+      <Segment basic>
+        <Grid verticalAlign='middle'>
+          <Grid.Row >
+            <Grid.Column width={2}>
+            </Grid.Column>
+
+            <Grid.Column width={12}>
+              <div className="product-list">
+                {this.renderProducts()}
+              </div>
+            </Grid.Column>
+
+            <Grid.Column width={2}>
+            </Grid.Column>
+          </Grid.Row>
+
+        </Grid>
+      </Segment>
     )
   }
 }
@@ -25,6 +41,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(ProductsList);
-
-
-//{this.renderProducts()}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Image } from 'semantic-ui-react';
+import { Grid, Segment, Image } from 'semantic-ui-react'
+
 
 class CurrentFeature extends Component {
 
@@ -7,10 +8,22 @@ class CurrentFeature extends Component {
 
   render() {
     return(
-      <div>
-        <h1>This is the current Feature</h1>
-        {this.imageTesting()}
-      </div>
+      <Segment basic>
+        <Grid verticalAlign='middle'>
+        <h1>Current Feature</h1>
+          <Grid.Row >
+            <Grid.Column width={1}>
+            </Grid.Column>
+
+            <Grid.Column width={14}>
+              {this.imageTesting()}
+            </Grid.Column>
+
+            <Grid.Column width={1}>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
     )
   }
 }

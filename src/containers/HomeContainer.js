@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
-
-//import NavHeader from './NavHeader';
 import CurrentFeature from './CurrentFeature';
 import AllProducts from './AllProducts';
-//Button,Container,Divider,Visibility,Sidebar,Header,Icon,Image,List,Menu,Responsive,
-import {
-  Grid,
-  Segment
-} from 'semantic-ui-react'
+
+import { Grid, Segment } from 'semantic-ui-react'
 
 
 

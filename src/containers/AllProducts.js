@@ -6,7 +6,6 @@ class AllProducts extends Component {
   render() {
     return(
       <div className="all-products-container">
-
         <ProductsList/>
       </div>
     )
