@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Product from './Product';
 import { connect } from 'react-redux';
+import './ProductsList.css';
 
 class ProductsList extends Component {
 
@@ -9,9 +10,8 @@ class ProductsList extends Component {
   }
 
   render() {
-    //console.log(this.props.products);
     return(
-      <div>
+      <div className="product-list">
         {this.renderProducts()}
       </div>
     )

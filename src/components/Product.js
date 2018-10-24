@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'semantic-ui-react';
 import {NavLink} from 'react-router-dom';
-
+import './Product.css'
 
 class Product extends Component {
 
@@ -11,9 +11,9 @@ class Product extends Component {
 
   render() {
     const {name, images, price, id } = this.props.product
-    
+
     return(
-      <div>
+      <div className="product">
         <NavLink to={`/products/${id}`}>
           {this.productImage(images[0].url)}
           <p>{name}</p>

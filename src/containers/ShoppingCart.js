@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ShoppingCartList from '../components/ShoppingCartList';
 import CheckOutBox from '../components/CheckOutBox';
+import {Segment, Grid } from 'semantic-ui-react';
 
 
 class ShoppingCart extends Component{
@@ -18,10 +19,18 @@ class ShoppingCart extends Component{
   render() {
     //console.log(this.currentCartTotal());
     return(
-      <div>
-        <ShoppingCartList cartItems={this.props.currentCart}/>
-        <CheckOutBox totalPrice={this.currentCartTotal()}/>
-      </div>
+      <Segment basic>
+          <Grid>
+            <Grid.Row >
+              <Grid.Column width={11}>
+                <ShoppingCartList cartItems={this.props.currentCart}/>
+              </Grid.Column>
+              <Grid.Column width={5}>
+                <CheckOutBox totalPrice={this.currentCartTotal()}/>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Segment>
     )
   }
 }

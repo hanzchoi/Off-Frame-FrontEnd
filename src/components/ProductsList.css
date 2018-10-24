@@ -1,0 +1,15 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  height: 50vh;
+  width: 70vw;
+  margin-left: 10vw;
+  padding-left: 10vw;
+  /* padding: 25px 50px 75px; */
+  /* align-items: center; */
+
+  overflow-y: scroll;
+}
