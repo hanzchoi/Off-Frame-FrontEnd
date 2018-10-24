@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-
-import UserAdapter from '../adapters/UserAdapter'
+import UserAdapter from '../adapters/UserAdapter';
+import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
+import './LoginForm';
 
 class LoginForm extends Component {
 
@@ -20,6 +21,7 @@ class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
+    console.log(this.state);
     UserAdapter.login(this.state)
     .then(data => {
       this.props.setUser(data)
@@ -30,21 +32,44 @@ class LoginForm extends Component {
   render() {
     const {username, password} = this.state
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Username:
-            <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          </label>
-          <br/>
-          <label>
-            Password:
-            <input type="password" name="password" value={password} onChange={this.handleChange}/>
-          </label>
-          <br/>
-          <input type="submit"/>
-        </form>
+      <div className='login-form'>
+        <Grid textAlign='center' style={{ height: '100%' }} verticalAlign='middle'>
+          <Grid.Column style={{ maxWidth: 450 }}>
+
+            <Header as='h2' color='yellow' textAlign='center'>
+              <Image src='https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701659/off-frame-logo/O.F.S.-LOGO.png' /> Log-in to your account
+            </Header>
+
+            <Form size='large' >
+              <Segment stacked>
+                <Form.Input
+                  name="username"
+                  value={username}
+                  onChange={this.handleChange}
+                  fluid icon='user'
+                  iconPosition='left'
+                  placeholder='Username'
+                />
+                <Form.Input
+                  name="password"
+                  value={password}
+                  onChange={this.handleChange}
+                  fluid
+                  icon='lock'
+                  iconPosition='left'
+                  placeholder='Password'
+                  type='password'
+                />
+
+                <Button color='yellow' onClick={this.handleSubmit} size='large'>
+                  Login
+                </Button>
+              </Segment>
+            </Form>
+          </Grid.Column>
+        </Grid>
       </div>
+
     );
   }
 

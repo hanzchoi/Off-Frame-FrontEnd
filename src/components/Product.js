@@ -10,7 +10,7 @@ class Product extends Component {
   }
 
   render() {
-    const {name, images, price, id } = this.props.product
+    const {name, images, id } = this.props.product
 
     return(
       <div className="product">

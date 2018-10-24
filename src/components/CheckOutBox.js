@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { setCurrentPrice } from '../actions/index'
 import { connect } from 'react-redux'
-import { Card, Icon, Button } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 
 
 class CheckOutBox extends Component {
@@ -23,14 +23,3 @@ class CheckOutBox extends Component {
 }
 
 export default connect(null, {setCurrentPrice})(CheckOutBox);
-
-
-
-    //
-    //
-    //
-    // <Card.Content description={description} />
-    // <Card.Content extra>
-    //   <Icon name='user' />
-    //   4 Friends
-    // </Card.Content>

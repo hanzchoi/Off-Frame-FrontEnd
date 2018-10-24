@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Image, Item } from 'semantic-ui-react'
+import { Button, Item } from 'semantic-ui-react'
 
 
 class ShoppingCartItem extends Component {
