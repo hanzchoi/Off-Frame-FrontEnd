@@ -16,4 +16,3 @@ class CurrentFeature extends Component {
 }
 
 export default CurrentFeature;
-//https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701989/off-frame-coverpage/0.COVERPAGE-8-min.jpg

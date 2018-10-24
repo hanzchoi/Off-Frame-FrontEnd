@@ -1,11 +1,24 @@
 import React, { Component } from 'react';
+import { Button, Image, Item } from 'semantic-ui-react'
+
 
 class ShoppingCartItem extends Component {
   render() {
+    //console.log(this.props.item);
+    const {name, images, price } = this.props.item
+
     return(
-      <div>
-        <h1>shopping cart item</h1>
-      </div>
+      <Item>
+        <Item.Image size='small' src={images[0].url} />
+
+        <Item.Content verticalAlign='middle'>
+          <Item.Header>{name}</Item.Header>
+          <Item.Description>{`$${price}`}</Item.Description>
+          <Item.Extra>
+            <Button floated='right'>Remove</Button>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
     )
   }
 }

@@ -90,8 +90,3 @@ class NavHeader extends Component {
 }
 
 export default NavHeader;
-
-//
-
-//
-//

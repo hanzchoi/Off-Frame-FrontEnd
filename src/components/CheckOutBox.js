@@ -2,25 +2,35 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { setCurrentPrice } from '../actions/index'
 import { connect } from 'react-redux'
+import { Card, Icon, Button } from 'semantic-ui-react'
+
 
 class CheckOutBox extends Component {
 
   render() {
-    console.log(this.props.totalPrice);
     return(
-      <div>
-        <h1>This is the Checkout Box</h1>
-        <h1>total price for the current items in cart</h1>
-        <h1>{this.props.totalPrice}</h1>
+      <Card>
+        <Card.Content header={`Subtotal (${this.props.totalItems}): $${this.props.totalPrice}`} />
         <NavLink to='/checkout-review'>
-          <button onClick={() => {
+          <Button color='yellow' fluid onClick={() => {
             return this.props.setCurrentPrice(this.props.totalPrice)
-          }}>
-            Check Out</button>
+          }}>Check Out</Button>
         </NavLink>
-      </div>
+
+      </Card>
     )
   }
 }
 
 export default connect(null, {setCurrentPrice})(CheckOutBox);
+
+
+
+    //
+    //
+    //
+    // <Card.Content description={description} />
+    // <Card.Content extra>
+    //   <Icon name='user' />
+    //   4 Friends
+    // </Card.Content>

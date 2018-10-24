@@ -7,26 +7,29 @@ import {Segment, Grid } from 'semantic-ui-react';
 
 class ShoppingCart extends Component{
 
-  // This will show you the total of the total price
   currentCartTotal = () => {
     let sum = 0;
     for (let value of this.props.currentCart) {
       sum += value.price;
     }
-    return sum;
+    return sum.toFixed(2);
   }
 
   render() {
-    //console.log(this.currentCartTotal());
     return(
       <Segment basic>
           <Grid>
             <Grid.Row >
-              <Grid.Column width={11}>
+              <Grid.Column width={2}>
+              </Grid.Column>
+
+              <Grid.Column width={7}>
                 <ShoppingCartList cartItems={this.props.currentCart}/>
               </Grid.Column>
-              <Grid.Column width={5}>
-                <CheckOutBox totalPrice={this.currentCartTotal()}/>
+              <Grid.Column width={2}>
+              </Grid.Column>
+              <Grid.Column width={3}>
+                <CheckOutBox totalPrice={this.currentCartTotal()} totalItems={this.props.currentCart.length}/>
               </Grid.Column>
             </Grid.Row>
           </Grid>

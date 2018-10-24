@@ -13,7 +13,7 @@ class ProductDetails extends Component {
   renderOutProductDetail = (product) => {
     if(product){
       const {name, images, price, color, size, description} = product
-      console.log(product);
+      // console.log(product);
 
       return (
         <Fragment>

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import ShoppingCartItem from './ShoppingCartItem'
+import ShoppingCartItem from './ShoppingCartItem';
+import { Item } from 'semantic-ui-react'
+
 
 class ShoppingCartList extends Component {
 
   rednerShoppingCartItems = () => {
-    return this.props.cartItems.map((item) => <ShoppingCartItem key={item.id} item={item}/>)
+    return this.props.cartItems.map((item, i) => <ShoppingCartItem key={i} item={item}/>)
   }
   render() {
     return(
-      <div>
+      <Item.Group relaxed>
         {this.rednerShoppingCartItems()}
-      </div>
+      </Item.Group>
     )
   }
 }
