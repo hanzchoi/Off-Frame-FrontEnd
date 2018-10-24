@@ -20,6 +20,7 @@ class NavHeader extends Component {
       <div>
         <Menu secondary>
           <Menu.Item
+            exact
             as={NavLink}
             to="/"
             name="home"

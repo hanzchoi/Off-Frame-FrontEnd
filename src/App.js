@@ -13,6 +13,7 @@ import CheckOutReview from './components/CheckOutReview';
 import ThankYouOrderPage from './components/ThankYouOrderPage';
 import ProductDetails from './components/ProductDetails';
 import LoginForm from './components/LoginForm';
+import AboutPage from './containers/AboutPage';
 
 class App extends Component {
   constructor(props){
@@ -70,7 +71,7 @@ class App extends Component {
           <Route path='/' exact render={() => <HomeContainer/>}/>
           <Route path='/products' exact render={() => <AllProducts/>}/>
           <Route path='/products/:id' exact render={(props) => <ProductDetails {...props}/>}/>
-          <Route path='/about' exact render={() => <h1>This is about</h1>}/>
+          <Route path='/about' exact render={() => <AboutPage />}/>
           <Route path='/cart' exact render={() => <ShoppingCart />}/>
           <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
           <Route path='/login' exact render={(props) => <LoginForm setUser={this.setUser} {...props}/>}/>
