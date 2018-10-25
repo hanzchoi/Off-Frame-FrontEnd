@@ -11,6 +11,7 @@ class ProductsList extends Component {
   }
 
   render() {
+    
     return(
       <Segment basic>
         <Grid verticalAlign='middle'>

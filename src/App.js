@@ -3,6 +3,7 @@ import {Grid,Segment,Image} from 'semantic-ui-react';
 import './App.css';
 import { loadProducts } from './actions/index';
 import { Route, Switch, withRouter} from 'react-router-dom';
+import UserAdapter from './adapters/UserAdapter'
 import { connect } from 'react-redux';
 
 import NavHeader from './containers/NavHeader';
@@ -41,13 +42,24 @@ class App extends Component {
 
   componentDidMount() {
     this.props.loadProducts()
+    if(localStorage.getItem("token")){
+      UserAdapter.persist(localStorage.getItem("token"))
+        .then(resp => {
+          if(!resp.error){
+            this.setUser(resp)
+          } else {
+            this.logout()
+          }
+        }
+      )
+    }
   }
 
   //Lets think about how we can save the loggin state in to redux
   render() {
     const loggedIn = !!this.state.currentUser.user_id
     const LOGO_URL = "https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701659/off-frame-logo/O.F.S.-LOGO.png"
-    console.log(this.state);
+    //console.log(this.state);
     return (
       <div className="App">
         <Segment basic>
@@ -84,4 +96,3 @@ class App extends Component {
 }
 
 export default withRouter(connect (null, {loadProducts})(App));
-//<Route path="/" component={HomeContainer}></Route>

@@ -1,4 +1,23 @@
 import { fetchProducts } from '../adapters/productsAdapter'
+//import UserAdapter from '../adapters/UserAdapter';
+
+// export const loadCartPorducts = (userInfo) => {
+//   return (dispatch) => {
+//     UserAdapter.login(userInfo)
+//     .then(data => {
+//       dispatch(setUserCart(data))
+//     })
+//   }
+// }
+
+// export const setUserInformation
+
+// export const setUserCart = (cartItems) => {
+//   return {
+//     type: 'LOAD_USER_CART',
+//     payload: cartItems
+//   }
+// }
 
 export const addProduct = (product) => {
   return {

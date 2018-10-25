@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { addProduct } from '../actions/index.js';
-import { Image } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { Segment, Grid, Image, List, Button, Header} from 'semantic-ui-react';
+import Size from './Size';
+
 
 class ProductDetails extends Component {
 
@@ -10,35 +12,69 @@ class ProductDetails extends Component {
     return <Image src={image} size='medium'/>
   }
 
+  renderSize = (size) => {
+    let arrSize = size.split(", ");
+    return arrSize.map(measurement => <Size measurement={measurement}/>)
+  }
+
   renderOutProductDetail = (product) => {
     if(product){
       const {name, images, price, color, size, description} = product
-      // console.log(product);
 
       return (
-        <Fragment>
-          <h1>{name}</h1>
-            {this.productImage(images[0].url)}
-            <h1>Price: {price}</h1>
-            <h1>Color: {color}</h1>
-            <h1>Size: {size}</h1>
-            <h1>Description: {description}</h1>
-            <NavLink to={'/cart'}>
-              <button onClick={() => {
-                return this.props.addProduct(this.props.product)}
-              }>Add to Cart</button>
-            </NavLink>
-        </Fragment>
+        <Segment basic>
+          <Grid>
+            <Grid.Row>
+              <Grid.Column width={2}>
+              </Grid.Column>
+
+              <Grid.Column width={8}>
+                <Header as='h2'>
+                  {name}
+                </Header>
+                  {this.productImage(images[0].url)}
+                <Header as='h2'>
+                  {description}
+                </Header>
+              </Grid.Column>
+
+              <Grid.Column width={4}>
+                <Header as='h2'>
+                  {`Price $${price}`}
+                </Header>
+                <Header as='h2'>
+                  {`Color: ${color}`}
+                </Header>
+                <Header as='h2'>
+                  Size:
+                </Header>
+                <List size="big">
+                  {this.renderSize(size)}
+                </List>
+                <NavLink to={'/cart'}>
+                  <Button
+                    color="yellow"
+                    fluid
+                    onClick={() => {
+                    return this.props.addProduct(this.props.product)}
+                  }>Add to Cart</Button>
+                </NavLink>
+              </Grid.Column>
+
+              <Grid.Column width={2}>
+              </Grid.Column>
+          </Grid.Row>
+          </Grid>
+        </Segment>
       )
     }
   }
 
   render(){
-    //console.log(this.props.product);
     return (
-      <div>
+      <Fragment>
         {this.renderOutProductDetail(this.props.product)}
-      </div>
+      </Fragment>
     )
   }
 }

@@ -2,6 +2,7 @@
 const initState = {
   products: [],
   currentCart: [],
+  currentUser: {},
   currentCartPrice: 0,
   selectedProduct: {}
 }
@@ -9,6 +10,8 @@ const initState = {
 
 export const reducer = (state = initState, action) => {
   switch (action.type){
+    case 'LOAD_USER_CART':
+      return { ...state, currentCart: action.payload }
     case 'SELECTED_PRODUCT':
       return { ...state, selectedProduct: action.payload }
     case 'ADD_PRODUCT':

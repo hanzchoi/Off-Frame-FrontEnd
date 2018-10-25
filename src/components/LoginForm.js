@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+//import { connect } from 'react-redux';
 import UserAdapter from '../adapters/UserAdapter';
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import './LoginForm';
@@ -21,11 +22,18 @@ class LoginForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log(this.state);
+    // console.log(this.state);
     UserAdapter.login(this.state)
     .then(data => {
-      this.props.setUser(data)
-      this.props.history.push('/cart')
+      if(!data.error){
+        console.log(data);
+        this.props.setUser(data)
+        this.props.history.push('/cart')
+        localStorage.setItem("token", data.user.user_id)
+      }else{
+        this.setState({error: data.error})
+      }
+
     })
   }
 
