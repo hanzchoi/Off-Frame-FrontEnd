@@ -11,15 +11,17 @@ class ProductsList extends Component {
   }
 
   render() {
-    
+
     return(
       <Segment basic>
+
         <Grid verticalAlign='middle'>
           <Grid.Row >
             <Grid.Column width={2}>
             </Grid.Column>
 
             <Grid.Column width={12}>
+              <h2>Current Stock</h2>
               <div className="product-list">
                 {this.renderProducts()}
               </div>

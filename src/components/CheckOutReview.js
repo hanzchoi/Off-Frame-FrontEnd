@@ -7,12 +7,8 @@ class CheckOutReview extends Component {
     return(
       <div>
         <div>
-          <form>
-          </form>
-        </div>
-        <div>
-          <h1>{this.props.currentCartPrice}</h1>
-          <h1>shipping price: free</h1>
+          <h1>{`Total $${this.props.currentCartPrice}`}</h1>
+          <h1>Shipping Price: Free</h1>
           <NavLink to={'/thank-you-order'}>
             <button>Place Your Order</button>
           </NavLink>
@@ -31,3 +27,10 @@ export default connect(mapStateToProps)(CheckOutReview);
 
 // show the form for the address and come card info
 // redirect the page to
+
+
+//
+// <div>
+//   <form>
+//   </form>
+// </div>
