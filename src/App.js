@@ -59,7 +59,6 @@ class App extends Component {
   render() {
     const loggedIn = !!this.state.currentUser.user_id
     const LOGO_URL = "https://res.cloudinary.com/dbgp0ijfb/image/upload/v1539701659/off-frame-logo/O.F.S.-LOGO.png"
-    //console.log(this.state);
     return (
       <div className="App">
         <Segment basic>
@@ -84,7 +83,7 @@ class App extends Component {
           <Route path='/products' exact render={() => <AllProducts/>}/>
           <Route path='/products/:id' exact render={(props) => <ProductDetails {...props}/>}/>
           <Route path='/about' exact render={() => <AboutPage />}/>
-          <Route path='/cart' exact render={() => <ShoppingCart />}/>
+          <Route path='/cart' exact render={() => <ShoppingCart loggedIn={loggedIn}/>}/>
           <Route path='/checkout-review' exact render={() => <CheckOutReview />}/>
           <Route path='/login' exact render={(props) => <LoginForm setUser={this.setUser} {...props}/>}/>
           <Route path='/signup' exact render={() => <h1>sign up</h1>}/>

@@ -28,6 +28,7 @@ class NavHeader extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
+            exact
             as={NavLink}
             to="/about"
             name="about"
@@ -35,6 +36,7 @@ class NavHeader extends Component {
             onClick={this.handleItemClick}
           />
           <Menu.Item
+            exact
             as={NavLink}
             to="/products"
             name="products"
@@ -48,6 +50,7 @@ class NavHeader extends Component {
             </Menu.Item>
 
             <Menu.Item
+              exact
               as={NavLink}
               to="/signup"
               name="Sign Up"
@@ -66,6 +69,7 @@ class NavHeader extends Component {
               />
               :
               <Menu.Item
+                exact
                 as={NavLink}
                 to="/login"
                 name="Login"
@@ -76,6 +80,7 @@ class NavHeader extends Component {
 
 
             <Menu.Item
+              exact
               as={NavLink}
               to="/cart"
               name="cart"
