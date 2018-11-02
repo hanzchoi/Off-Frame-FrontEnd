@@ -26,7 +26,7 @@ class LoginForm extends Component {
     UserAdapter.login(this.state)
     .then(data => {
       if(!data.error){
-        console.log(data);
+        //console.log(data);
         this.props.setUser(data)
         this.props.history.push('/cart')
         localStorage.setItem("token", data.user.user_id)

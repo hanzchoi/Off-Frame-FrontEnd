@@ -1,12 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { Redirect } from 'react-router-dom';
 
-
-const WithAuth = () => {
+const WithAuth = (Component) => {
   return class AuthComponent extends React.Component {
     render(){
-      return(
-        
-      )
+      //'console.log(this.props);
+      if (this.props.loggedIn){
+        return <Component temp={this.props}/>
+      } else if(localStorage.getItem('token')){
+        <div>...loading...</div>
+      } else{
+        return <Redirect to='/login' />
+      }
     }
   }
 }
+
+export default WithAuth
