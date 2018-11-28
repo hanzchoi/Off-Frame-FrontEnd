@@ -8,7 +8,7 @@ const WithAuth = (Component) => {
       if (this.props.loggedIn){
         return <Component temp={this.props}/>
       } else if(localStorage.getItem('token')){
-        <div>...loading...</div>
+        return <div>...loading...</div>
       } else{
         return <Redirect to='/login' />
       }
