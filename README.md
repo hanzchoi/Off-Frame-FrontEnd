@@ -1,21 +1,14 @@
 # Off Frame Studio
-
-
-## Application Features
-
+Fully functional React and Rails app focused on plus-size fashion e-commerce website
 ## Getting Started
 
 ## Built With
-- React
 
 ## Contributing
 
-## Authors
+## Author
 **Hanbi Hanz Choi**
-
 ## License
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 
 ## Acknowledgments
 Big thank you to Prince Wilson, Tony Lam & Eric Kim
