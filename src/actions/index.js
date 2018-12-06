@@ -19,6 +19,13 @@ import { fetchProducts } from '../adapters/productsAdapter'
 //   }
 // }
 
+export const deleteProduct = (product) => {
+  return {
+    type: 'DELETE_PRODUCT',
+    payload: product
+  }
+}
+
 export const addProduct = (product) => {
   return {
     type: 'ADD_PRODUCT',

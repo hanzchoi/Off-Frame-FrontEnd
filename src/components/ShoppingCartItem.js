@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Button, Item } from 'semantic-ui-react'
-
+import { deleteProduct } from '../actions/index.js'
 
 class ShoppingCartItem extends Component {
   render() {
-    //console.log(this.props.item);
+    console.log(this.props.item);
     const {name, images, price } = this.props.item
 
     return(
@@ -15,7 +15,12 @@ class ShoppingCartItem extends Component {
           <Item.Header>{name}</Item.Header>
           <Item.Description>{`$${price}`}</Item.Description>
           <Item.Extra>
-            <Button floated='right'>Remove</Button>
+            <Button
+              color="yellow"
+              floated='right'
+              onClick={() => {
+                this.props.deleteProduct(this.props.item)
+              }}>Remove</Button>
           </Item.Extra>
         </Item.Content>
       </Item>

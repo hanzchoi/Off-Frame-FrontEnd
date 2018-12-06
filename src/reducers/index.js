@@ -14,6 +14,8 @@ export const reducer = (state = initState, action) => {
       return { ...state, currentCart: action.payload }
     case 'SELECTED_PRODUCT':
       return { ...state, selectedProduct: action.payload }
+    case 'DELETE_PRODUCT':
+      return {}
     case 'ADD_PRODUCT':
      return { ...state, currentCart: [...state.currentCart, action.payload] }
     case 'SET_CURRENT_PRICE':
