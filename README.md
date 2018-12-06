@@ -12,7 +12,9 @@ Fully functional React and Rails app focused on plus-size fashion e-commerce web
 
 ## Author
 **Hanbi Hanz Choi**
+
 ## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ## Acknowledgments
 Big thank you to Prince Wilson, Tony Lam & Eric Kim
