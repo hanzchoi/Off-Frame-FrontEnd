@@ -20,6 +20,7 @@ import { fetchProducts } from '../adapters/productsAdapter'
 // }
 
 export const deleteProduct = (product) => {
+  //console.log(product)
   return {
     type: 'DELETE_PRODUCT',
     payload: product
@@ -28,7 +29,7 @@ export const deleteProduct = (product) => {
 
 export const addProduct = (product) => {
   console.log(product);
-  
+
   return {
     type: 'ADD_PRODUCT',
     payload: product

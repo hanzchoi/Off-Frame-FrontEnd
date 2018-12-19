@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Button, Item } from 'semantic-ui-react'
 import { deleteProduct } from '../actions/index.js'
+import { connect } from 'react-redux';
 
 class ShoppingCartItem extends Component {
   render() {
-    console.log(this.props.item);
+    //console.log(this.props.item);
     const {name, images, price } = this.props.item
 
     return(
@@ -31,4 +32,4 @@ class ShoppingCartItem extends Component {
 
 
 
-export default ShoppingCartItem
+export default connect(null,{deleteProduct})(ShoppingCartItem)
